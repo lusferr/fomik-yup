@@ -3,7 +3,7 @@
 ## Projeto desenvolvido com ReactTS
 
 <div align="center>
-<img src="https://imgur.com/iLFPrsP" width="700px"
+<img src="https://i.imgur.com/iLFPrsP.png" width="700px"
 </div>
 
 Validações feitas:
