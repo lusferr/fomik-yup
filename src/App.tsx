@@ -1,7 +1,8 @@
-import { Field, Formik } from 'formik';
+import {Formik } from 'formik';
 import React from 'react';
 import './App.css';
 import CustomInput from './components/customInput';
+import PreviewImage from './components/PreviewImage';
 import { formSchema } from './schemas';
 
 interface FormModel {
@@ -9,11 +10,10 @@ interface FormModel {
   email: string,
   senha: string,
   confirmarSenha: string,
-  imagem?: File 
+  imagem?: File
 }
 
 export default function App() {
-
 
   return (
     <div className="App">
@@ -28,10 +28,8 @@ export default function App() {
         }}
         validationSchema={formSchema}
         onSubmit={(values, actions) => {
-          //alert(JSON.stringify(values))
+          alert(JSON.stringify(values))
           console.log(values)
-          alert(values.imagem)
-
           //actions.resetForm()
         }}
       >
@@ -73,13 +71,13 @@ export default function App() {
               type="file"
               value={undefined}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                if (e.target.files != null && e.target.files != undefined) {
-                  setFieldValue('imagem', e.target.files[0])
+                if (e.target.files !== null && e.target.files !== undefined) {
+                  setFieldValue('imagem', e.target.files)
                 }
               }}
             />
 
-          
+            <PreviewImage image={values.imagem} />
 
             <button type='submit'>Enviar</button>
           </form>
