@@ -1,4 +1,6 @@
+import { FieldHookConfig, useField } from "formik";
 import React from "react";
+import './style.css'
 
 interface inputProps extends React.DetailedHTMLProps<
     React.InputHTMLAttributes<HTMLInputElement>,
@@ -11,12 +13,16 @@ interface inputProps extends React.DetailedHTMLProps<
     name: string;
 }
 
-export default function CustomInput({className,id, label, name, mask, ...props}: inputProps) {
+export default function CustomInput(props: inputProps & FieldHookConfig<any>) {
+    const [inputProps, meta] = useField(props);
+    console.log('inputProps', inputProps)
+    console.log('meta', meta)
 
     return (
         <div className="inputControl">
-            <label htmlFor={id}>{label}</label>
-            <input id={id} {...props}/>
+            <label htmlFor={props.id}>{props.label}</label>
+            <input {...inputProps} {...props} className={meta.touched && meta.error ? "input-error" : ""}/>
+            {meta.touched && meta.error &&<div>{meta.error.toString()}</div>}
         </div>
     );
 }
