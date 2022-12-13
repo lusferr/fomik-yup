@@ -8,11 +8,12 @@ export const formSchema = yup.object().shape({
     email: yup.string().email("escolha um email válido").required("Email é necessario"),
     senha: yup
     .string()
-    .min(5)
+    .min(5, 'Mínimo de 5 digitos*')
     .matches(passwordRules, {message: "É necessário conter letra maiscula, minuscula e um número"})
     .required("É necessário escolher uma senha"),
     confirmarSenha: yup
     .string()
     .oneOf([yup.ref('senha'), null], "As senhas não são iguais")
-    .required("É necessario confirmar a senha")
+    .required("É necessario confirmar a senha"),
+    cpf: yup.string().required()
 })

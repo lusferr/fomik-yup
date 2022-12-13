@@ -4,11 +4,7 @@ export default function PreviewImage(props?: any){
 
     const [preview, setPreview] = useState<any>("");
 
-    console.log("teste image image");
-    console.log(props);
-
     if(props.image){
-    
         const reader = new FileReader();
     
         reader.readAsDataURL(props.image[0]);
@@ -18,7 +14,7 @@ export default function PreviewImage(props?: any){
     
         return(
             <div>
-                <img src={preview} alt="preview" width="200px"/>
+                <img src={preview} alt="preview" width="420px"/>
             </div>
         );
     }

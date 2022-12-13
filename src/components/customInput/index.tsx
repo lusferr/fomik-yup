@@ -15,8 +15,6 @@ interface inputProps extends React.DetailedHTMLProps<
 
 export default function CustomInput(props: inputProps & FieldHookConfig<any>) {
     const [inputProps, meta] = useField(props);
-    console.log('inputProps', inputProps)
-    console.log('meta', meta)
 
     return (
         <div className="inputControl">
